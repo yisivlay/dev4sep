@@ -28,9 +28,12 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-integration'
+	implementation 'org.springframework.boot:spring-boot-starter-jersey'
 	implementation 'org.apache.tomcat:tomcat-jdbc'
 	implementation 'org.jetbrains:annotations:23.0.0'
 	implementation 'com.googlecode.flyway:flyway-core:2.3.1'
+	implementation 'org.apache.httpcomponents:httpclient:4.5.14'
+	implementation 'com.google.code.gson:gson'
 
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'mysql:mysql-connector-java'
