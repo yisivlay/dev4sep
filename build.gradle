@@ -1,0 +1,70 @@
+plugins {
+	id 'java'
+	id 'idea'
+	id 'eclipse'
+	id 'application'
+	id 'org.springframework.boot' version '2.6.4'
+	id 'io.spring.dependency-management' version '1.0.12.RELEASE'
+}
+
+group = 'com.base'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	sourceCompatibility = '17'
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-integration'
+	implementation 'org.apache.tomcat:tomcat-jdbc'
+	implementation 'org.jetbrains:annotations:23.0.0'
+	implementation 'com.googlecode.flyway:flyway-core:2.3.1'
+
+	compileOnly 'org.projectlombok:lombok'
+	runtimeOnly 'mysql:mysql-connector-java'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+sourceSets {
+	main {
+		java.srcDirs = ['src/main/java']
+		resources.srcDirs = ['src/main/resources']
+	}
+}
+
+application {
+	mainClass = 'com.base.ServerApplication'
+}
+springBoot {
+	mainClass = 'com.base.ServerApplication'
+}
+
+def intelliJ_Idea_compiler_out_path = "./build/classes"
+idea {
+	module {
+		inheritOutputDirs = false
+		outputDir = file("$intelliJ_Idea_compiler_out_path" + "/main")
+		testOutputDir = file("$intelliJ_Idea_compiler_out_path" + "/test")
+	}
+}
+
+tasks.named('bootBuildImage') {
+	builder = 'paketobuildpacks/builder-jammy-base:latest'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
