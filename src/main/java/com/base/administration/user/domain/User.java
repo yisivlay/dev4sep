@@ -16,13 +16,14 @@
 package com.base.administration.user.domain;
 
 import com.base.administration.role.domain.Role;
+import com.base.infrastructure.core.security.domain.PlatformUser;
 import com.base.organisation.office.domain.Office;
-import lombok.Getter;
-import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.jpa.domain.AbstractPersistable;
+import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.Date;
 import java.util.Set;
 
@@ -30,14 +31,12 @@ import java.util.Set;
  * {@code @author:} YISivlay
  */
 @Slf4j
-@Getter
-@Setter
 @Entity
 @Table(name = "users", uniqueConstraints = {
         @UniqueConstraint(columnNames = "username", name = "username"),
         @UniqueConstraint(columnNames = "email", name = "email")
 })
-public class User extends AbstractPersistable<Long> {
+public class User extends AbstractPersistable<Long> implements PlatformUser {
 
     @ManyToOne
     @JoinColumn(name = "office_id")
@@ -87,9 +86,6 @@ public class User extends AbstractPersistable<Long> {
     @Column(name = "activation_key", length = 50)
     private String activationKey;
 
-    @Column(name = "lang", length = 20)
-    private Integer lang;
-
     @Column(name = "note")
     private Integer note;
 
@@ -114,4 +110,42 @@ public class User extends AbstractPersistable<Long> {
     protected User() {
     }
 
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return null;
+    }
+
+    @Override
+    public String getPassword() {
+        return this.password;
+    }
+
+    @Override
+    public String getUsername() {
+        return this.username;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return this.accountNonExpired;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return this.accountNonLocked;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return this.credentialsNonExpired;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return this.enabled;
+    }
+
+    public boolean isDeleted() {
+        return this.deleted;
+    }
 }

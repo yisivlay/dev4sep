@@ -15,12 +15,23 @@
  */
 package com.base.administration.user.domain;
 
-import com.base.infrastructure.core.security.domain.PlatformUserRepository;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  * {@code @author:} YISivlay
  */
-public interface UserRepository extends JpaRepository<User, Long>, JpaSpecificationExecutor<User>, PlatformUserRepository {
+@Service
+public class UserRepositoryWrapper {
+
+    private final UserRepository userRepository;
+
+    @Autowired
+    public UserRepositoryWrapper(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
+    public void save(final User user) {
+        this.userRepository.save(user);
+    }
 }
