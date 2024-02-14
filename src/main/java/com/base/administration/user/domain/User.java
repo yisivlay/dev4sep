@@ -17,6 +17,7 @@ package com.base.administration.user.domain;
 
 import com.base.administration.role.domain.Role;
 import com.base.infrastructure.core.security.domain.PlatformUser;
+import com.base.infrastructure.core.security.exception.NoAuthorizationException;
 import com.base.organisation.office.domain.Office;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.jpa.domain.AbstractPersistable;
@@ -165,4 +166,40 @@ public class User extends AbstractPersistable<Long> implements PlatformUser {
         return office;
     }
 
+    public void validateHasReadPermission(String permission) {
+        final var authorizationMessage = "User has no authority to view " + permission.toLowerCase();
+        final var matchPermission = "READ_" + permission.toUpperCase();
+
+        if (!hasNotPermissionForAnyOf("ALL_FUNCTIONS", "ALL_FUNCTIONS_READ", matchPermission)) {
+            return;
+        }
+
+        throw new NoAuthorizationException(authorizationMessage);
+    }
+
+    public boolean hasNotPermissionForAnyOf(final String... permissionCodes) {
+        var hasNotPermission = true;
+        for (final var permissionCode : permissionCodes) {
+            final var checkPermission = hasPermissionTo(permissionCode);
+            if (checkPermission) {
+                hasNotPermission = false;
+                break;
+            }
+        }
+        return hasNotPermission;
+    }
+
+    private boolean hasPermissionTo(final String permissionCode) {
+        var hasPermission = hasAllFunctionsPermission();
+        if (!hasPermission) {
+            if (this.roles.stream().anyMatch(role -> role.hasPermissionTo(permissionCode))) {
+                hasPermission = true;
+            }
+        }
+        return hasPermission;
+    }
+
+    private boolean hasAllFunctionsPermission() {
+        return this.roles.stream().anyMatch(role -> role.hasPermissionTo("ALL_FUNCTIONS"));
+    }
 }

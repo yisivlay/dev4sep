@@ -44,7 +44,6 @@ import java.io.IOException;
  */
 @Slf4j
 @Service
-@Profile("basicauth")
 public class BasicAuthenticationProcessingFilter extends BasicAuthenticationFilter {
 
     private static boolean firstRequestProcessed = false;

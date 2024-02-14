@@ -53,4 +53,8 @@ public class Permission extends AbstractPersistable<Long> {
 
     protected Permission() {
     }
+
+    public boolean hasCode(final String checkCode) {
+        return this.code.equalsIgnoreCase(checkCode);
+    }
 }

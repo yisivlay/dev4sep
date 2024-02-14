@@ -66,4 +66,9 @@ public class Role extends AbstractPersistable<Long> {
                 .disabled(this.isDisabled)
                 .build();
     }
+
+    public boolean hasPermissionTo(final String permissionCode) {
+        return this.permissions.stream().anyMatch(permission -> permission.hasCode(permissionCode));
+    }
+
 }

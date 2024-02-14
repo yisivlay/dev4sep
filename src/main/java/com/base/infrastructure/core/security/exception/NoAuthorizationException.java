@@ -13,13 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.base.organisation.office.domain;
-
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+package com.base.infrastructure.core.security.exception;
 
 /**
  * {@code @author:} YISivlay
  */
-public interface OfficeRepositoryRepository extends JpaRepository<Office, Long>, JpaSpecificationExecutor<Office> {
+public class NoAuthorizationException extends RuntimeException {
+    public NoAuthorizationException(final String message) {
+        super(message);
+    }
 }
