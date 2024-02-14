@@ -13,14 +13,27 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.base.administration.user.domain;
+package com.base.infrastructure.core.security.service;
 
-import com.base.infrastructure.core.security.domain.PlatformUserRepository;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import com.base.administration.user.domain.User;
 
 /**
  * {@code @author:} YISivlay
  */
-public interface UserRepository extends JpaRepository<User, Long>, JpaSpecificationExecutor<User>, PlatformUserRepository {
+public interface PlatformSecurityContext {
+
+    User authenticatedUser();
+
+    /**
+     * Convenience method returns null (does not throw an exception) if an
+     * authenticated user is not present
+     * <p>
+     * To be used only in service layer methods that can be triggered via both
+     * the API and batch Jobs (which do not have an authenticated user)
+     *
+     * @return
+     */
+    User getAuthenticatedUserIfPresent();
+
+    boolean doesPasswordHasToBeRenewed(User currentUser);
 }

@@ -13,14 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.base.administration.user.domain;
+package com.base.infrastructure.core.security.data;
 
-import com.base.infrastructure.core.security.domain.PlatformUserRepository;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import java.io.Serializable;
 
 /**
+ * <p>
+ * Immutable data object representing generic enumeration value.
+ * </p>
+ * <p>
  * {@code @author:} YISivlay
  */
-public interface UserRepository extends JpaRepository<User, Long>, JpaSpecificationExecutor<User>, PlatformUserRepository {
+public record EnumOptionData(Long id, String code, String value) implements Serializable {
 }
+

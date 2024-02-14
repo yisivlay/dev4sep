@@ -13,14 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.base.administration.user.domain;
+package com.base.infrastructure.core.security.domain;
 
-import com.base.infrastructure.core.security.domain.PlatformUserRepository;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import org.springframework.security.core.userdetails.UserDetails;
 
 /**
  * {@code @author:} YISivlay
  */
-public interface UserRepository extends JpaRepository<User, Long>, JpaSpecificationExecutor<User>, PlatformUserRepository {
+public interface PlatformUser extends UserDetails {
 }
