@@ -21,11 +21,10 @@ import com.base.organisation.office.domain.Office;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 import javax.persistence.*;
-import java.util.Collection;
-import java.util.Date;
-import java.util.Set;
+import java.util.*;
 
 /**
  * {@code @author:} YISivlay
@@ -86,9 +85,6 @@ public class User extends AbstractPersistable<Long> implements PlatformUser {
     @Column(name = "activation_key", length = 50)
     private String activationKey;
 
-    @Column(name = "note")
-    private Integer note;
-
     @Column(name = "account_non_expired")
     private boolean accountNonExpired;
 
@@ -112,7 +108,19 @@ public class User extends AbstractPersistable<Long> implements PlatformUser {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return populateGrantedAuthorities();
+    }
+
+    private List<GrantedAuthority> populateGrantedAuthorities() {
+        final List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
+        this.roles.stream()
+                .map(Role::getPermissions)
+                .forEach(permissions -> permissions
+                        .stream()
+                        .map(permission -> new SimpleGrantedAuthority(permission.getCode()))
+                        .forEach(grantedAuthorities::add)
+                );
+        return grantedAuthorities;
     }
 
     @Override
@@ -148,4 +156,13 @@ public class User extends AbstractPersistable<Long> implements PlatformUser {
     public boolean isDeleted() {
         return this.deleted;
     }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public Office getOffice() {
+        return office;
+    }
+
 }

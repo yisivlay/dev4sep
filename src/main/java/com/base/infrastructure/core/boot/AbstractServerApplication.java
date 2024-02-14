@@ -22,7 +22,6 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerA
 import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.ImportResource;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.integration.annotation.IntegrationComponentScan;
 
@@ -30,7 +29,6 @@ import org.springframework.integration.annotation.IntegrationComponentScan;
  * {@code @author:} YISivlay
  */
 @Configuration
-@ImportResource({"classpath*:META-INF/spring/securityContextBasic.xml"})
 @PropertySource(value = "classpath:META-INF/spring/jdbc.properties")
 @ComponentScan(basePackages = "com.base.**")
 @IntegrationComponentScan(basePackages = "com.base.**")

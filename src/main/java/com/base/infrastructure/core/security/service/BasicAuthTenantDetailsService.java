@@ -13,30 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.base;
+package com.base.infrastructure.core.security.service;
 
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
-
-import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
-import java.util.Map;
+import com.base.infrastructure.core.tenant.PlatformTenant;
 
 /**
  * {@code @author:} YISivlay
  */
-@Component
-@Scope("singleton")
-@Path("/hello")
-public class HelloWorld {
+public interface BasicAuthTenantDetailsService {
 
-    @GET
-    @Consumes({MediaType.APPLICATION_JSON})
-    @Produces({MediaType.APPLICATION_JSON})
-    public Map<String, String> hello() {
-        return Map.of("message", "Hello, World!");
-    }
+    PlatformTenant loadTenantById(String tenantId, boolean isReport);
+
 }
