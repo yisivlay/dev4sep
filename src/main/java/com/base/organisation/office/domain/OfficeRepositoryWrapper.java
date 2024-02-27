@@ -20,7 +20,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
- * {@code @author:} YISivlay
+ * @author YISivlay
  */
 @Service
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))

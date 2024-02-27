@@ -18,7 +18,7 @@ package com.base.infrastructure.core.security.service;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 /**
- * {@code @author:} YISivlay
+ * @author YISivlay
  */
 public interface PlatformUserDetailsService extends UserDetailsService {
 }

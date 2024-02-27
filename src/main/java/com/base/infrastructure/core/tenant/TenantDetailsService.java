@@ -18,7 +18,7 @@ package com.base.infrastructure.core.tenant;
 import java.util.List;
 
 /**
- * {@code @author:} YISivlay
+ * @author YISivlay
  */
 public interface TenantDetailsService {
     PlatformTenant loadTenantById(String tenantId);

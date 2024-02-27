@@ -29,7 +29,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * {@code @author:} YISivlay
+ * @author YISivlay
  */
 @Slf4j
 @Service

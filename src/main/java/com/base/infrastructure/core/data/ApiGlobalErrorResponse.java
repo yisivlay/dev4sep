@@ -28,7 +28,7 @@ import static lombok.AccessLevel.PROTECTED;
 import static org.apache.http.HttpStatus.*;
 
 /**
- * {@code @author:} YISivlay
+ * @author YISivlay
  */
 @Getter
 @Setter(PROTECTED)

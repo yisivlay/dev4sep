@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * {@code @author:} YISivlay
+ * @author YISivlay
  */
 public abstract class AbstractPlatformException extends RuntimeException {
     private static final Object[] NO_ARGS = new Object[0];

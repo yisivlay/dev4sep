@@ -21,7 +21,7 @@ import lombok.Getter;
 import java.util.List;
 
 /**
- * {@code @author:} YISivlay
+ * @author YISivlay
  */
 @Getter
 public class PlatformApiDataValidationException extends RuntimeException {

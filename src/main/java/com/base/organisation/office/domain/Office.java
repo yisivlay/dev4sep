@@ -25,7 +25,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * {@code @author:} YISivlay
+ * @author YISivlay
  */
 @Getter
 @Setter

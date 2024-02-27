@@ -18,7 +18,7 @@ package com.base.infrastructure.core.security.service;
 import com.base.administration.user.domain.User;
 
 /**
- * {@code @author:} YISivlay
+ * @author YISivlay
  */
 public interface PlatformSecurityContext {
 

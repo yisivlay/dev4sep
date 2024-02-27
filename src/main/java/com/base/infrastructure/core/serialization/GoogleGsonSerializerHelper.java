@@ -27,7 +27,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * {@code @author:} YISivlay
+ * @author YISivlay
  */
 @Service
 public class GoogleGsonSerializerHelper {

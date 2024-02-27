@@ -22,7 +22,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 /**
- * {@code @author:} YISivlay
+ * @author YISivlay
  */
 @Service
 public class SpringPlatformSecurityContext implements PlatformSecurityContext {

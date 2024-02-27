@@ -16,7 +16,7 @@
 package com.base.infrastructure.core.security.domain;
 
 /**
- * {@code @author:} YISivlay
+ * @author YISivlay
  */
 public interface PlatformUserRepository {
 

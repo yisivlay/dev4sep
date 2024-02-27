@@ -16,7 +16,7 @@
 package com.base.infrastructure.core.data;
 
 /**
- * {@code @author:} YISivlay
+ * @author YISivlay
  */
 public class ApiErrorMessageArg {
 

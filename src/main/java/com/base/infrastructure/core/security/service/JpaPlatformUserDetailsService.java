@@ -22,7 +22,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 /**
- * {@code @author:} YISivlay
+ * @author YISivlay
  */
 @Service(value = "userDetailsService")
 public class JpaPlatformUserDetailsService implements PlatformUserDetailsService {

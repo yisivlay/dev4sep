@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * {@code @author:} YISivlay
+ * @author YISivlay
  */
 public class ApiParameterError {
 

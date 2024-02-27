@@ -24,9 +24,9 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 /**
- * {@code @author:} YISivlay
+ * @author YISivlay
  */
-@Service
+@Service(value = "routingDataSource")
 public class RoutingDataSource extends AbstractDataSource {
 
     private final RoutingDataSourceServiceFactory dataSourceServiceFactory;

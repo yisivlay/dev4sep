@@ -25,7 +25,7 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
 /**
- * {@code @author:} YISivlay
+ * @author YISivlay
  */
 @Getter
 @Setter

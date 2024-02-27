@@ -26,7 +26,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * {@code @author:} YISivlay
+ * @author YISivlay
  */
 @Getter
 @Setter

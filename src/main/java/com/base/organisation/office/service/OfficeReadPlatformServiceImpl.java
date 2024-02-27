@@ -26,7 +26,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 /**
- * {@code @author:} YISivlay
+ * @author YISivlay
  */
 @Service
 public class OfficeReadPlatformServiceImpl implements OfficeReadPlatformService {
@@ -51,17 +51,19 @@ public class OfficeReadPlatformServiceImpl implements OfficeReadPlatformService 
         } else {
             hierarchy = h + "%";
         }
-        String sql = "SELECT * FROM offices o where o.hierarchy like ? ";
+        String sql = "SELECT o.*, p.name parent_name FROM offices o " +
+                "LEFT JOIN offices p ON p.id = o.parent_id " +
+                "WHERE o.hierarchy like ? ";
         return this.jdbcTemplate.query(sql, (rs, rowNum) -> {
 
             final Long id = rs.getLong("id");
-            final Long parentId = rs.getLong("parentId");
-            final String parentName = rs.getString("parentName");
+            final Long parentId = rs.getLong("parent_id");
+            final String parentName = rs.getString("parent_name");
             final String name = rs.getString("name");
             final String nameDecorated = rs.getString("nameDecorated");
             final String hch = rs.getString("hierarchy");
-            final String externalId = rs.getString("externalId");
-            final LocalDate openingDate = rs.getDate("openingDate").toLocalDate();
+            final String externalId = rs.getString("external_id");
+            final LocalDate openingDate = rs.getDate("opening_date").toLocalDate();
 
             return OfficeData.builder()
                     .id(id)

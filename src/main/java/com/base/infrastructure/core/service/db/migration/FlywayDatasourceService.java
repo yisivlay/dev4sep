@@ -26,7 +26,7 @@ import org.springframework.stereotype.Service;
 import javax.sql.DataSource;
 
 /**
- * {@code @author:} YISivlay
+ * @author YISivlay
  */
 @Slf4j
 @Service

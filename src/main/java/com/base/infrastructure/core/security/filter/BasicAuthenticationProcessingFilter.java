@@ -19,7 +19,6 @@ import com.base.infrastructure.core.security.data.RequestLog;
 import com.base.infrastructure.core.security.service.BasicAuthTenantDetailsService;
 import com.base.infrastructure.core.serialization.ToApiJsonSerializer;
 import com.base.infrastructure.core.utils.ThreadLocalContextUtil;
-import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.time.StopWatch;
@@ -29,8 +28,6 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
-import org.springframework.security.web.util.matcher.AnyRequestMatcher;
-import org.springframework.security.web.util.matcher.RequestMatcher;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.FilterChain;
@@ -40,18 +37,16 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * {@code @author:} YISivlay
+ * @author YISivlay
  */
 @Slf4j
 @Service
+@Profile("basicauth")
 public class BasicAuthenticationProcessingFilter extends BasicAuthenticationFilter {
 
     private static boolean firstRequestProcessed = false;
     private final ToApiJsonSerializer<RequestLog> toApiJsonSerializer;
     private final BasicAuthTenantDetailsService basicAuthTenantDetailsService;
-
-    @Setter
-    private RequestMatcher requestMatcher = AnyRequestMatcher.INSTANCE;
 
     @Autowired
     public BasicAuthenticationProcessingFilter(final AuthenticationManager authenticationManager,
@@ -79,7 +74,6 @@ public class BasicAuthenticationProcessingFilter extends BasicAuthenticationFilt
             if ("OPTIONS".equalsIgnoreCase(request.getMethod())) {
                 filterChain.doFilter(request, response);
             } else {
-                if (requestMatcher.matches(request)) {
                     var tenantRequestHeader = "DEV4Sep-Platform-TenantId";
                     var tenantIdentifier = request.getHeader(tenantRequestHeader);
                     if (StringUtils.isBlank(tenantIdentifier)) {
@@ -102,7 +96,6 @@ public class BasicAuthenticationProcessingFilter extends BasicAuthenticationFilt
                         System.setProperty("baseUrl", baseUrl);
                         firstRequestProcessed = true;
                     }
-                }
                 filterChain.doFilter(request, response);
             }
         } catch (final RuntimeException e) {

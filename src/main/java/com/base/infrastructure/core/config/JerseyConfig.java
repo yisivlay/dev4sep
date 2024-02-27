@@ -25,7 +25,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.ext.Provider;
 
 /**
- * {@code @author:} YISivlay
+ * @author YISivlay
  */
 @Configuration(proxyBeanMethods = false)
 @ApplicationPath("/api/v1/*")
@@ -37,7 +37,7 @@ public class JerseyConfig extends ResourceConfig {
     }
 
     @Autowired
-    ApplicationContext appCtx;
+    private ApplicationContext appCtx;
 
     @PostConstruct
     public void setup() {

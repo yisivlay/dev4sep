@@ -23,7 +23,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * {@code @author:} YISivlay
+ * @author YISivlay
  */
 @Configuration
 public class TomcatConfig {

@@ -20,7 +20,7 @@ import com.base.organisation.office.data.OfficeData;
 import java.util.List;
 
 /**
- * {@code @author:} YISivlay
+ * @author YISivlay
  */
 public interface OfficeReadPlatformService {
 

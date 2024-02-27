@@ -25,7 +25,7 @@ import java.util.Collection;
 /**
  * Immutable data object for authentication.
  * <p>
- * {@code @author:} YISivlay
+ * @author YISivlay
  */
 @Data
 @NoArgsConstructor

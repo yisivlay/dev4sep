@@ -18,7 +18,7 @@ package com.base.infrastructure.core.security.domain;
 import org.springframework.security.core.userdetails.UserDetails;
 
 /**
- * {@code @author:} YISivlay
+ * @author YISivlay
  */
 public interface PlatformUser extends UserDetails {
 }

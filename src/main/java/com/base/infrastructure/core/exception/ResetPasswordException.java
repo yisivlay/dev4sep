@@ -23,7 +23,7 @@ import java.util.List;
 /**
  * A {@link RuntimeException} that is thrown in the case where a user does not have sufficient authorization to execute operation on platform.
  * <p>
- * {@code @author:} YISivlay
+ * @author YISivlay
  */
 public class ResetPasswordException extends PlatformApiDataValidationException {
 

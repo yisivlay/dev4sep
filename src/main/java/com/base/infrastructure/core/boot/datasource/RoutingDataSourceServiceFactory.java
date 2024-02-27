@@ -21,7 +21,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
 /**
- * {@code @author:} YISivlay
+ * @author YISivlay
  */
 @Component
 public class RoutingDataSourceServiceFactory {

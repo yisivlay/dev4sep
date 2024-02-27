@@ -26,7 +26,7 @@ import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.MediaType;
 
 /**
- * {@code @author:} YISivlay
+ * @author YISivlay
  */
 @Component
 @Path("/echo")

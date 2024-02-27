@@ -16,7 +16,7 @@
 package com.base.infrastructure.core.serialization;
 
 /**
- * {@code @author:} YISivlay
+ * @author YISivlay
  */
 public interface ToApiJsonSerializer<T> {
 

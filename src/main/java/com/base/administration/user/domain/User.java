@@ -28,7 +28,7 @@ import javax.persistence.*;
 import java.util.*;
 
 /**
- * {@code @author:} YISivlay
+ * @author YISivlay
  */
 @Slf4j
 @Entity

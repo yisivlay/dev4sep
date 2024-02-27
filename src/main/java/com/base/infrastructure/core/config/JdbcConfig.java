@@ -27,7 +27,7 @@ import javax.annotation.PostConstruct;
 import java.util.Objects;
 
 /**
- * {@code @author:} YISivlay
+ * @author YISivlay
  */
 @Service
 public class JdbcConfig {

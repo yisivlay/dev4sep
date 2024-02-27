@@ -19,7 +19,7 @@ import com.base.infrastructure.core.tenant.PlatformTenant;
 import org.springframework.util.Assert;
 
 /**
- * {@code @author:} YISivlay
+ * @author YISivlay
  */
 public class ThreadLocalContextUtil {
 

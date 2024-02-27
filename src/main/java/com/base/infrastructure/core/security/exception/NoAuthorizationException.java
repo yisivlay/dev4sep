@@ -16,7 +16,7 @@
 package com.base.infrastructure.core.security.exception;
 
 /**
- * {@code @author:} YISivlay
+ * @author YISivlay
  */
 public class NoAuthorizationException extends RuntimeException {
     public NoAuthorizationException(final String message) {

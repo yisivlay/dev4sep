@@ -26,7 +26,7 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.integration.annotation.IntegrationComponentScan;
 
 /**
- * {@code @author:} YISivlay
+ * @author YISivlay
  */
 @Configuration
 @PropertySource(value = "classpath:META-INF/spring/jdbc.properties")

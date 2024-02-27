@@ -18,7 +18,7 @@ package com.base.infrastructure.core.exception;
 /**
  * A {@link RuntimeException} thrown when resources that are queried for are not found.
  *
- * {@code @author:} YISivlay
+ * @author YISivlay
  */
 public abstract class AbstractPlatformResourceNotFoundException extends AbstractPlatformException {
 

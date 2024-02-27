@@ -19,7 +19,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
- * {@code @author:} YISivlay
+ * @author YISivlay
  */
 @Component
 public class DefaultToApiJsonSerializer<T> implements ToApiJsonSerializer<T> {

@@ -22,7 +22,7 @@ import java.io.Serializable;
  * Immutable data object representing generic enumeration value.
  * </p>
  * <p>
- * {@code @author:} YISivlay
+ * @author YISivlay
  */
 public record EnumOptionData(Long id, String code, String value) implements Serializable {
 }

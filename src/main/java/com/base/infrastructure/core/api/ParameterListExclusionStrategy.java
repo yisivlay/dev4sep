@@ -21,7 +21,7 @@ import com.google.gson.FieldAttributes;
 import java.util.Set;
 
 /**
- * {@code @author:} YISivlay
+ * @author YISivlay
  */
 public class ParameterListExclusionStrategy implements ExclusionStrategy {
 

@@ -21,7 +21,7 @@ import java.lang.reflect.Type;
 import java.time.LocalTime;
 
 /**
- * {@code @author:} YISivlay
+ * @author YISivlay
  */
 public class LocalTimeAdapter implements JsonSerializer<LocalTime> {
 

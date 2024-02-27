@@ -16,7 +16,7 @@
 package com.base.infrastructure.core.exception;
 
 /**
- * {@code @author:} YISivlay
+ * @author YISivlay
  */
 public class UnAuthenticatedUserException extends RuntimeException{
 }

@@ -24,7 +24,7 @@ import java.lang.reflect.Type;
 import java.time.ZonedDateTime;
 
 /**
- * {@code @author:} YISivlay
+ * @author YISivlay
  */
 public class JodaDateTimeAdapter implements JsonSerializer<ZonedDateTime> {
 

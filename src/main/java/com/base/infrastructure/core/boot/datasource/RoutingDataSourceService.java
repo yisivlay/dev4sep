@@ -20,7 +20,7 @@ import javax.sql.DataSource;
 /**
  * A service for getting hold of the appropriate {@link DataSource} connection pool.
  * <p>
- * {@code @author:} YISivlay
+ * @author YISivlay
  */
 public interface RoutingDataSourceService {
 

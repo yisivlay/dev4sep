@@ -31,7 +31,7 @@ import java.util.Set;
  *
  * @see JpaConfig
  *
- * {@code @author:} YISivlay
+ * @author YISivlay
  */
 public interface EntityManagerFactoryCustomizer {
 

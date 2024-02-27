@@ -18,7 +18,7 @@ package com.base.infrastructure.core.security.service;
 import com.base.infrastructure.core.tenant.PlatformTenant;
 
 /**
- * {@code @author:} YISivlay
+ * @author YISivlay
  */
 public interface BasicAuthTenantDetailsService {
 

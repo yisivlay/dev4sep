@@ -41,7 +41,7 @@ import java.util.Collection;
 import java.util.stream.Collectors;
 
 /**
- * {@code @author:} YISivlay
+ * @author YISivlay
  */
 @Component
 @Profile("basicauth")

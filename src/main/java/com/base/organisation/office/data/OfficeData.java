@@ -22,7 +22,7 @@ import java.time.LocalDate;
 import java.util.Collection;
 
 /**
- * {@code @author:} YISivlay
+ * @author YISivlay
  */
 @Getter
 @Builder

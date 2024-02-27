@@ -23,7 +23,7 @@ import java.time.MonthDay;
 import static java.time.temporal.ChronoField.MONTH_OF_YEAR;
 
 /**
- * {@code @author:} YISivlay
+ * @author YISivlay
  */
 public class JodaMonthDayAdapter implements JsonSerializer<MonthDay> {
 

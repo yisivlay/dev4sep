@@ -27,7 +27,7 @@ import javax.ws.rs.ext.ExceptionMapper;
 import javax.ws.rs.ext.Provider;
 
 /**
- * {@code @author:} YISivlay
+ * @author YISivlay
  */
 @Slf4j
 @Component

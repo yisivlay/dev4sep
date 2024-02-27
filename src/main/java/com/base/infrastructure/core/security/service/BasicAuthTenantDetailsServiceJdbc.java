@@ -32,7 +32,7 @@ import java.sql.SQLException;
  * A JDBC implementation of {@link BasicAuthTenantDetailsService} for loading a tenants details by a
  * <code>tenantIdentifier</code>.
  * <p>
- * {@code @author:} YISivlay
+ * @author YISivlay
  */
 @Service
 public class BasicAuthTenantDetailsServiceJdbc implements BasicAuthTenantDetailsService {

@@ -25,7 +25,7 @@ import java.time.OffsetDateTime;
 import java.time.format.DateTimeFormatter;
 
 /**
- * {@code @author:} YISivlay
+ * @author YISivlay
  */
 public class OffsetDateTimeAdapter implements JsonSerializer<OffsetDateTime> {
 

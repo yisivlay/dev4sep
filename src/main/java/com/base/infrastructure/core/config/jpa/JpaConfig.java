@@ -45,7 +45,7 @@ import java.util.HashSet;
 import java.util.Map;
 
 /**
- * {@code @author:} YISivlay
+ * @author YISivlay
  */
 @Configuration
 @EnableJpaAuditing

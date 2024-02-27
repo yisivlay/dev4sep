@@ -21,7 +21,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * {@code @author:} YISivlay
+ * @author YISivlay
  */
 public class TenantMapper implements RowMapper<PlatformTenant> {
 

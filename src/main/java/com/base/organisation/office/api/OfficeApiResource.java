@@ -31,7 +31,7 @@ import javax.ws.rs.core.UriInfo;
 import java.util.List;
 
 /**
- * {@code @author:} YISivlay
+ * @author YISivlay
  */
 @Component
 @Scope("singleton")

@@ -25,7 +25,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 /**
- * {@code @author:} YISivlay
+ * @author YISivlay
  */
 public class DateAdapter implements JsonSerializer<Date> {
 

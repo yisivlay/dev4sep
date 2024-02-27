@@ -20,7 +20,7 @@ import com.google.gson.GsonBuilder;
 import org.springframework.stereotype.Component;
 
 /**
- * {@code @author:} YISivlay
+ * @author YISivlay
  */
 @Component
 public class ExcludeNothingWithPrettyPrintingOffJsonSerializerGoogleGson {

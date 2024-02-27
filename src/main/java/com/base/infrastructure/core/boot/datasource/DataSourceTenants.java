@@ -22,7 +22,7 @@ import org.springframework.stereotype.Service;
 import javax.sql.DataSource;
 
 /**
- * {@code @author:} YISivlay
+ * @author YISivlay
  */
 @Service
 public class DataSourceTenants implements RoutingDataSourceService {

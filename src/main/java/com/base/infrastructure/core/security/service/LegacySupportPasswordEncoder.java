@@ -24,7 +24,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 /**
- * {@code @author:} YISivlay
+ * @author YISivlay
  */
 @Component
 public class LegacySupportPasswordEncoder implements PasswordEncoder {

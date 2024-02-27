@@ -22,7 +22,7 @@ import java.time.LocalDateTime;
 import java.time.temporal.ChronoField;
 
 /**
- * {@code @author:} YISivlay
+ * @author YISivlay
  */
 public class LocalDateTimeAdapter implements JsonSerializer<LocalDateTime> {
 

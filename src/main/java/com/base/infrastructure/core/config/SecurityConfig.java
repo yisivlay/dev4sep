@@ -18,7 +18,6 @@ package com.base.infrastructure.core.config;
 import com.base.infrastructure.core.security.filter.BasicAuthenticationProcessingFilter;
 import com.base.infrastructure.core.security.service.JpaPlatformUserDetailsService;
 import com.base.infrastructure.core.security.service.LegacySupportPasswordEncoder;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.web.ServerProperties;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
@@ -35,29 +34,33 @@ import org.springframework.security.config.annotation.web.configurers.AbstractHt
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.www.BasicAuthenticationEntryPoint;
-import org.springframework.security.web.savedrequest.NullRequestCache;
 import org.springframework.security.web.util.matcher.RequestMatcher;
 
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * {@code @author:} YISivlay
+ * @author YISivlay
  */
 @Configuration
 @EnableMethodSecurity
 @Profile("basicauth")
-@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class SecurityConfig {
 
     private final ServerProperties serverProperties;
     private final JpaPlatformUserDetailsService userDetailsService;
     private final LegacySupportPasswordEncoder legacySupportPasswordEncoder;
 
+    @Autowired
+    public SecurityConfig(final ServerProperties serverProperties,
+                          final JpaPlatformUserDetailsService userDetailsService,
+                          final LegacySupportPasswordEncoder legacySupportPasswordEncoder) {
+        this.serverProperties = serverProperties;
+        this.userDetailsService = userDetailsService;
+        this.legacySupportPasswordEncoder = legacySupportPasswordEncoder;
+    }
+
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        // Prevent the request from being saved
-        // Redirect the user to the home page instead of the page they tried to visit before login
-        var nullRequestCache = new NullRequestCache();
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeRequests(requestMatcher -> {
@@ -68,8 +71,7 @@ public class SecurityConfig {
                             .antMatchers("/api/**").fullyAuthenticated();
                 })
                 .sessionManagement((session) -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .httpBasic((httpBasic) -> httpBasic.authenticationEntryPoint(basicAuthenticationEntryPoint()))
-                .requestCache((cache) -> cache.requestCache(nullRequestCache));
+                .httpBasic((httpBasic) -> httpBasic.authenticationEntryPoint(basicAuthenticationEntryPoint()));
         if (serverProperties.getSsl().isEnabled()) {
             http.requiresChannel(channel -> channel.requestMatchers(requestMatcher()).requiresSecure());
         }

@@ -31,7 +31,7 @@ import javax.sql.DataSource;
 import java.util.List;
 
 /**
- * {@code @author:} YISivlay
+ * @author YISivlay
  */
 @Service
 public class FlywayDataMigrationService {

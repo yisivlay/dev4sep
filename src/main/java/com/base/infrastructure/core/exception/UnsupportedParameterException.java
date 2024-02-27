@@ -18,7 +18,7 @@ package com.base.infrastructure.core.exception;
 import java.util.List;
 
 /**
- * {@code @author:} YISivlay
+ * @author YISivlay
  */
 public class UnsupportedParameterException extends RuntimeException {
 
